@@ -242,7 +242,10 @@ def train():
 
     epoch_size = len(dataset) // args.batch_size
     num_epochs = math.ceil(cfg.max_iter / epoch_size)
-    
+    print('Dataset Length:', len(dataset))
+    print('Max. Iterations:', cfg.max_iter)
+    print('Epoch Size:', epoch_size)
+    print('No. of Epochs:', num_epochs)
     # Which learning rate adjustment step are we on? lr' = lr * gamma ^ step_index
     step_index = 0
 

@@ -155,6 +155,16 @@ coco2017_testdev_dataset = dataset_base.copy({
     'label_map': COCO_LABEL_MAP
 })
 
+smart2_drone_dataset = dataset_base.copy({
+    'name': 'University of Bremen - Smart2 Rail Track Drone Dataset',
+    'train_info': '/home/jayawardana_mf/anaconda3/envs/yolact-env/yolact/data/smart2_drone/train/smart_drone_train.json',
+    'train_images': '/home/jayawardana_mf/anaconda3/envs/yolact-env/yolact/data/smart2_drone/train/images/',
+    'valid_info': '/home/jayawardana_mf/anaconda3/envs/yolact-env/yolact/data/smart2_drone/val/smart_drone_val.json',
+    'valid_images': '/home/jayawardana_mf/anaconda3/envs/yolact-env/yolact/data/smart2_drone/val/images/',
+    'class_names': ('railtrack'),
+    'label_map': { 1:  1 }
+})
+
 PASCAL_CLASSES = ("aeroplane", "bicycle", "bird", "boat", "bottle",
                   "bus", "car", "cat", "chair", "cow", "diningtable",
                   "dog", "horse", "motorbike", "person", "pottedplant",
@@ -805,6 +815,15 @@ yolact_plus_resnet50_config = yolact_plus_base_config.copy({
     }),
 })
 
+yolact_plus_resnet50_smart2_drone_config = yolact_plus_resnet50_config.copy({
+    'name': 'yolact_plus_resnet50_smart2_drone',
+    # Dataset stuff
+    'dataset': smart2_drone_dataset,
+    'num_classes': len(smart2_drone_dataset.class_names) + 1,
+
+    # Image Size
+    # 'max_size': 512,
+})
 
 # Default config
 cfg = yolact_base_config.copy()
